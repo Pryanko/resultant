@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">resultant</string>
+    <string name="app_title_name">Resultant</string>
+    <string name="name">Name</string>
 </resources>
