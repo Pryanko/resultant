@@ -122,7 +122,13 @@ public class HeadFragment extends Fragment implements ViewHead {
 
     @Override
     public void showToast(Boolean firstRun, Boolean refresh) {
-        if(!firstRun) {
+        if(refresh) {
+            Toast.makeText(App.getAppComponent().getContext(), R.string.refresher,
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
+      /*  if(!firstRun) {
             Toast.makeText(App.getAppComponent().getContext(), R.string.refresh, Toast.LENGTH_SHORT)
                     .show();
         }
@@ -131,5 +137,5 @@ public class HeadFragment extends Fragment implements ViewHead {
                     Toast.LENGTH_SHORT)
                     .show();
         }
-    }
+    }     */
 }
