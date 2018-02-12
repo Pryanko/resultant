@@ -3,15 +3,20 @@ package com.example.resultant.presentation.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 import com.example.resultant.App;
 import com.example.resultant.R;
 import com.example.resultant.data.Currency;
@@ -35,6 +40,8 @@ public class HeadFragment extends Fragment implements ViewHead {
     RecyclerView recyclerHead;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    @BindView(R.id.head_layout)
+    RelativeLayout relativeLayout;
 
     private CurrencyAdapter currencyAdapter;
     private LinearLayoutManager linearLayoutManager;
@@ -65,6 +72,27 @@ public class HeadFragment extends Fragment implements ViewHead {
     }
 
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.app_menu, menu);
+        
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_refresh:
+                headPresenter.refresh();
+                return true;
+        }
+        return true;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        headPresenter.destroyView();
+    }
 
     //implements
     @Override
@@ -87,6 +115,16 @@ public class HeadFragment extends Fragment implements ViewHead {
 
     @Override
     public void errorShow() {
+        Snackbar.make(relativeLayout, R.string.not_network, Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.repeat, v ->
+                       headPresenter.refresh()
+                ).show();
 
+    }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(App.getAppComponent().getContext(), R.string.refresher, Toast.LENGTH_SHORT)
+                .show();
     }
 }

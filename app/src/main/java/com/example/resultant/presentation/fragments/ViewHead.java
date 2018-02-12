@@ -17,5 +17,7 @@ public interface ViewHead {
 
     void errorShow();
 
+    void showToast();
+
 
 }
