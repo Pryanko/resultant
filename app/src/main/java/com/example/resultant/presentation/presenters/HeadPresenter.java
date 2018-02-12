@@ -1,5 +1,7 @@
 package com.example.resultant.presentation.presenters;
 
+import android.util.Log;
+
 import com.example.resultant.App;
 import com.example.resultant.data.repository.AppRepository;
 import com.example.resultant.presentation.fragments.ViewHead;
@@ -27,10 +29,13 @@ public class HeadPresenter implements BasePresenter {
         if(appRepository.getFillList()){
            viewHead.startShow(appRepository.getCurrencyList());
             viewHead.isLoading(false);
-            if(disposable.isDisposed()){
+            Log.d("isDisposed", String.valueOf(disposable.isDisposed()));
+            if (disposable.isDisposed()){
                 dataSubscribe();
             }
-        }else{
+          
+        }
+        else{
              dataSubscribe();
         } 
 

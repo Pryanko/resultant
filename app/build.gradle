@@ -32,8 +32,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     //mvp
-    implementation "com.google.dagger:dagger:2.13"
-    annotationProcessor "com.google.dagger:dagger-compiler:2.13"
+    implementation "com.google.dagger:dagger:2.14"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.14"
 
     //design
     implementation 'com.android.support:design:27.0.2'

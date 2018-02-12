@@ -81,16 +81,23 @@ public class HeadFragment extends Fragment implements ViewHead {
         switch (item.getItemId()){
             case R.id.action_refresh:
                 headPresenter.refresh();
-                return true;
+                break;
         }
         return true;
+    }
+
+  /*  @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("onDestroyView", "YES");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         headPresenter.destroyView();
-    }
+        Log.d("onDestroy", "YES");
+    }  */
 
     //implements
     @Override

@@ -27,7 +27,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
     private List<Currency> currencyList = new ArrayList<>();
 
     public void updateList(List<Currency> currencyList){
-        if(currencyList.size() == 0){
+        if(currencyList.isEmpty()){
             this.currencyList = currencyList;
         }else {
             this.currencyList.clear();
