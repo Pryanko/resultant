@@ -2,7 +2,7 @@
     <string name="app_name">resultant</string>
     <string name="app_title_name">Resultant</string>
     <string name="name">Name</string>
-    <string name="refresh">Обновить</string>
+    <string name="refresh">Обновлено</string>
     <string name="refresher">Обновляем</string>
     <string name="not_network">Нет соединения</string>
     <string name="repeat">Повторить попытку?</string>

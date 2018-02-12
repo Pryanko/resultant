@@ -50,6 +50,11 @@ public class HeadPresenter implements BasePresenter {
     private void dataSubscribe(){
         disposable = RxNetwork.getListCurrency()
                 .doOnNext(list -> appRepository.setCurrencyList(list))
+                .doOnNext(list -> {
+                    viewHead.showToast(appRepository.getFirstRun(), false);
+                    if(appRepository.getFirstRun())
+                    appRepository.setFirstRun(false);
+                })
                 .subscribe(list -> {viewHead.startShow(list); viewHead.isLoading(false);},
                         throwable -> onError());
     }
@@ -58,7 +63,7 @@ public class HeadPresenter implements BasePresenter {
         disposable.dispose();
         dataSubscribe();
         if(appRepository.getFillList()) {
-            viewHead.showToast();
+            viewHead.showToast(false, true);
         }
     }
 }

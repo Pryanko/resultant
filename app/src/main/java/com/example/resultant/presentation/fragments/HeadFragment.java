@@ -23,9 +23,7 @@ import com.example.resultant.data.Currency;
 import com.example.resultant.presentation.adapters.CurrencyAdapter;
 import com.example.resultant.presentation.adapters.decoration.SpaceDecoration;
 import com.example.resultant.presentation.presenters.HeadPresenter;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -123,8 +121,15 @@ public class HeadFragment extends Fragment implements ViewHead {
     }
 
     @Override
-    public void showToast() {
-        Toast.makeText(App.getAppComponent().getContext(), R.string.refresher, Toast.LENGTH_SHORT)
-                .show();
+    public void showToast(Boolean firstRun, Boolean refresh) {
+        if(!firstRun) {
+            Toast.makeText(App.getAppComponent().getContext(), R.string.refresh, Toast.LENGTH_SHORT)
+                    .show();
+        }
+        if(refresh) {
+            Toast.makeText(App.getAppComponent().getContext(), R.string.refresher,
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 }

@@ -12,6 +12,17 @@ import java.util.List;
 public class AppRepository {
 
     private List<Currency> currencyList = new ArrayList<>();
+    private Boolean firstRun =  true;
+
+
+    public Boolean getFirstRun() {
+        return firstRun;
+    }
+
+    public void setFirstRun(Boolean firstRun) {
+        this.firstRun = firstRun;
+    }
+
 
 
     public Boolean getFillList(){

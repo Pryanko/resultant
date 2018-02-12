@@ -17,7 +17,7 @@ public interface ViewHead {
 
     void errorShow();
 
-    void showToast();
+    void showToast(Boolean firstRun, Boolean refresh);
 
 
 }
